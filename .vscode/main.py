@@ -20,25 +20,25 @@ import random
 
 def random_destination (destination_list):
     global question
+    global random_destination_choice
     random_destination_choice = random.choice(destination_list)
-    print(f"Would you like to visit {random_destination_choice}?")
+    print('Would you like to visit {}?'.format(random_destination_choice))
     question= input ("Please answer y or n")
 random_destination_picked=random_destination(destination_list)
 user_input = True
-
-
 affirm= "Wonderful choice. Let's continue planning your trip."
 negative= "No problem, let's try again."
 
-
-def user_prompt():
+#destination selection loop:
+def user_prompt(): 
     global random_destination_picked
+    global random_destination_choice
     global user_input
-    global question
+    global question    
     while user_input == True:
         if question == 'y':
             user_input =False
-            print (affirm)
+            print (f"Wonderful choice, you will be traveling to {random_destination_choice}")
         else:
             user_input= True
             print(negative)
@@ -46,15 +46,11 @@ def user_prompt():
             
            
 destination_confirm=user_prompt()
-#    if user_input == 'y':
-#        print ("Wonderful choice. Let's continue planning your trip.")
-#        return random_destination_picked
-#    elif user_input == 'n':
-#        print ("No problem, let's try again.")
-#        return random_destination(destination_list)
-   
+
+#transportation selection loop   
 def random_transporation (transportation_list):
     global question
+    global random_transportation_choice
     random_transportation_choice = random.choice(transportation_list)
     print(f"Would you like to travel by {random_transportation_choice}?")
     question= input ("Please answer y or n")
@@ -63,21 +59,23 @@ random_transportation_picked=random_transporation (transportation_list)
 user_input = True
        
 def choose_transport():
+    global random_transportation_choice
     global random_transportation_picked
     global user_input
     global question
     while user_input == True:
         if question == 'y':
             user_input =False
-            print (affirm)
+            print (f"Wonderful, you will be traveling by {random_transportation_choice}.")
         else:
             user_input= True
             print(negative)
             random_transportation_picked=random_transporation(transportation_list)
 
 transport_confirmed=choose_transport()
-
+#activity selection loop
 def random_activity (activities_list):
+    global random_activity_choice
     global question
     random_activity_choice = random.choice(activities_list)
     print(f"Would you like to spend your day {random_activity_choice}?")
@@ -88,21 +86,23 @@ random_activity_picked=random_activity (activities_list)
 user_input = True
        
 def choose_activity():
+    global random_activity_choice
     global random_activity_picked
     global user_input
     global question
     while user_input == True:
         if question == 'y':
             user_input =False
-            print (affirm)
+            print (f"You will have fun all day while {random_activity_choice}.")
         else:
             user_input= True
             print(negative)
             random_activity_picked=random_activity (activities_list)
 
 activity_confirmed=choose_activity()
-
+#Dining selection loop
 def random_dining (dining_list):
+    global random_dining_choice
     global question
     random_dining_choice = random.choice(dining_list)
     print(f"Would you like to have {random_dining_choice} for dinner?")
@@ -113,16 +113,21 @@ random_dinner_picked=random_dining (dining_list)
 user_input = True
        
 def choose_dinner():
+    global random_dining_choice
     global random_dinner_picked
     global user_input
     global question
     while user_input == True:
         if question == 'y':
             user_input =False
-            print (affirm)
+            print (f"You have planned a wonderful day trip that will end with a {random_dining_choice} dinner.")
         else:
             user_input= True
             print(negative)
             random_dinner_picked=random_dining (dining_list)
 
 dinner_confirmed=choose_dinner()
+#review choices
+print("As a last step please review your options: ")
+print(f"Your adventure awaits as you travel by {random_transportation_choice} to {random_destination_choice}.  Once you arrive you will enjoy a day of {random_activity_choice} and end your day with a delicious {random_dining_choice} dinner!  Bon Voyage!")
+
