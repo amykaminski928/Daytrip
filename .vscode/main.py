@@ -76,3 +76,53 @@ def choose_transport():
             random_transportation_picked=random_transporation(transportation_list)
 
 transport_confirmed=choose_transport()
+
+def random_activity (activities_list):
+    global question
+    random_activity_choice = random.choice(activities_list)
+    print(f"Would you like to spend your day {random_activity_choice}?")
+    question= input ("Please answer y or n")
+
+random_activity_picked=random_activity (activities_list)
+
+user_input = True
+       
+def choose_activity():
+    global random_activity_picked
+    global user_input
+    global question
+    while user_input == True:
+        if question == 'y':
+            user_input =False
+            print (affirm)
+        else:
+            user_input= True
+            print(negative)
+            random_activity_picked=random_activity (activities_list)
+
+activity_confirmed=choose_activity()
+
+def random_dining (dining_list):
+    global question
+    random_dining_choice = random.choice(dining_list)
+    print(f"Would you like to have {random_dining_choice} for dinner?")
+    question= input ("Please answer y or n")
+
+random_dinner_picked=random_dining (dining_list)
+
+user_input = True
+       
+def choose_dinner():
+    global random_dinner_picked
+    global user_input
+    global question
+    while user_input == True:
+        if question == 'y':
+            user_input =False
+            print (affirm)
+        else:
+            user_input= True
+            print(negative)
+            random_dinner_picked=random_dining (dining_list)
+
+dinner_confirmed=choose_dinner()
